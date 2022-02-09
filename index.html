@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Advanced Legal Intake System</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="lang-menu">
+    <div class="selected-lang">
+    </div>
+    <ul>
+        <li>
+            <a href="#es" class="es">Spanish</a>
+        </li>
+        <li>
+            <a href="" class="en">English</a>
+        </li>
+
+
+
+  <div>
+    <img src="https://www.advancedlegal.com/wp-content/uploads/2021/03/ADLS-Logo-Header-Avada-Retina.png"
+  </div>
+
+  <div id="myData"></div>
+  <script>
+      fetch('people.json')
+          .then(function (response) {
+              return response.json();
+          })
+          .then(function (data) {
+              appendData(data);
+          })
+          .catch(function (err) {
+              console.log('error: ' + err);
+          });
+      function appendData(data) {
+          var mainContainer = document.getElementById("myData");
+          for (var i = 0; i < data.length; i++) {
+              var div = document.createElement("div");
+              div.innerHTML = 'Name: ' + data[i].firstName + ' ' + data[i].lastName;
+              mainContainer.appendChild(div);
+          }
+      }
+  </script>
+
+  <div class="container">
+    <h1 class="brand"><span>Advanced Legal</span> Intake System</h1>
+    <div class="wrapper">
+      <div class="Form">
+      </div>
+        <form id="contactForm">
+          <p>
+            <fieldset>
+                <legend>Salutation</legend>
+            
+                <label for="salutation_mr">Mr. <input id="salutation_mr" name="salutation" type="radio" value="mr"><label>
+            
+                <label for="salutation_mrs">Mrs. <input id="salutation_mrs" name="salutation" type="radio" value="mrs"><label>
+            
+                <label for="salutation_miss">Miss <input id="salutation_miss" name="salutation" type="radio" value="miss"><label>
+            
+                <label for="salutation_ms">Ms. <input id="salutation_miss" name="salutation" type="radio" value="ms"><label>
+
+                <label for="salutation_dr">Dr. <input id="salutation_dr" name="salutation" type="radio" value="dr"><label>  
+
+                <label for="salutation_mx">Mx.<input id="salutation_mx" name="salutation" type="radio" value="mx"><label>      
+            </fieldset>
+            
+          </p>
+          
+          
+          
+            <p>
+            <label>First Name</label>
+            <input type="text" name="name" id="name" required>
+          </p>
+          <p>
+            <label>Last Name</label>
+            <input type="text" name="lastname" id="lastname">
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="email" name="email" id="email" required>
+          </p>
+          <p>
+            <adress>
+                <label for="Adress">Adress</label>
+                <input type="text" name="address" id="address" required
+            </adress> 
+          </p>
+          <p>
+            <label>City</label>
+            <input type="text" name="city" id="city">
+          </p>
+          <p>
+            <label>State</label>
+            <input type="text" name="State" id="State">
+          </p>
+          <p>
+            <label>Zip Code</label>
+            <input type="text" name="zipcode" id="zipcode">
+          </p>
+          <p>
+            <label>Phone Number</label>
+            <input type="text" name="phone" id="phone">
+          </p>
+
+          <p class="small">
+            <label>Who?</label>
+            <textarea name="Who" rows="5" id="Who"></textarea>
+          </p>
+
+
+          <p class="small">
+            <label>What?</label>
+            <textarea name="What?" rows="5" id="What"></textarea>
+          </p>
+
+          <p>
+            <label>Where?</label>  
+            <input type="location" name="location" id="location"
+          </p>
+
+          <p class="small">
+            <label for="start">Start date:</label>
+
+            <input type="date" id="start" name="trip-start"
+                   value="2022-02-08"
+                   min="2018-01-01" max="2050-02-08">
+          </p>
+
+          <label>Do you have a witness?</label>
+          <label> 
+            <input type="radio" name="choice-radio">
+            Yes
+          </label>
+          <label>
+            <input type="radio" name="choice-radio">
+            No
+          </label>
+          <p>
+            <label>If yes provide witness' First Name, Last Name and Phone</label>
+            <input type="text" id="start" name="witres"
+          </p>
+          <p></p>
+          <label>Do you have an attorney?</label>
+          <label> 
+            <input type="radio" name="choice-radio">
+            Yes
+          </label>
+          <label>
+            <input type="radio" name="choice-radio">
+            No
+          </label>
+          <p>
+            <label>If yes provide Attorney's Name, Practice Name and Website</label>
+            <input type="text" id="start" name="witres"
+          </p>
+          
+          
+          <p class="full">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
